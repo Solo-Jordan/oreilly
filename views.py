@@ -1,7 +1,9 @@
 from django.shortcuts import render
 import requests
 from datetime import datetime, timedelta, date
+import os
 
+API_KEY = os.getenv('API_KEY')
 
 def get_weeks():
     """
@@ -50,7 +52,7 @@ def monitorView(request):
     monitor and displays it in a table.
     """
     if request.method == 'POST':
-        headers = {'Authorization': 'Bearer kQC4773J1v9364AT9ka5Krq8'}
+        headers = {'Authorization': 'Bearer ' + API_KEY}
         # Get all of the current monitors
         r = requests.get('https://betteruptime.com/api/v2/monitors', headers=headers)
 
