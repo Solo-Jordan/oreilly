@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>O'Reillys Monitors</title>
+    <link type="text/css" rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- Below is a font family from Google that I am using  -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+
+  <body>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">{{ w1 }}</th>
+          <th scope="col">{{ w2 }}</th>
+          <th scope="col">{{ w3 }}</th>
+          <th scope="col">{{ w4 }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for name,monitor in monitors.items %}
+        <tr>
+          <th scope="row">{{ monitor.name }}</th>
+          {% for week in monitor.weeks %}
+          <td>{{ week.availability }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="/static/js/script.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
